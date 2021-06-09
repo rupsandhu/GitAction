@@ -31,12 +31,21 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.2.3
-        with:
-    # Artifact name
-          name: artifact
-    # A file, directory or wildcard pattern that describes what to upload
+          
+      - name: Step 1 - Create a temporary artifact downloads folder
+        run: mkdir downloads
+        
+      - name: step 2 - Add artifacts to publish to the temp folder
+        run: |
+          cd downloads
+          echo 'alpha'    > alpha.html
+          echo 'bravo'    > bravo.html
+          echo 'charlie'  > charlie.html
+          cd ..
+    
+      - name: Step 3 - Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with: 
+          name: assets-for-download
           path: downloads
-    # The desired behavior if no files are found using the provided path.
 
