@@ -43,7 +43,7 @@ jobs:
       with:
         name: artifact
     # A file, directory or wildcard pattern that describes what to upload
-        path: .rupsandhu/artifacts
+        path: .rupsandhu/
  
     #Available Options:
        #warn: Output a warning but do not fail the action
